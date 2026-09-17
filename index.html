@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071316" />
+  <meta name="description" content="Gadah — AI & Data Portfolio. Applied AI, machine learning, computer vision, multimodal systems and data." />
+  <title>Gadah — AI & Data Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#071316; --bg2:#0a1d20; --card:rgba(15,36,39,.68);
+      --line:rgba(173,255,235,.13); --text:#f4fbf8; --muted:#9cb4b1;
+      --mint:#8ff3d2; --mint2:#43d7b2; --violet:#9c8cff; --orange:#ffb86b;
+      --shadow:0 30px 80px rgba(0,0,0,.32);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;background:
+      radial-gradient(circle at 10% 10%,rgba(67,215,178,.12),transparent 28%),
+      radial-gradient(circle at 85% 20%,rgba(156,140,255,.10),transparent 26%),
+      var(--bg);color:var(--text);overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .cursor{position:fixed;width:18px;height:18px;border:1px solid rgba(143,243,210,.7);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:screen}
+    .cursor-dot{position:fixed;width:4px;height:4px;border-radius:50%;background:var(--mint);pointer-events:none;z-index:10000;transform:translate(-50%,-50%)}
+    .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--mint),var(--violet));z-index:9998;width:0}
+    .container{width:min(1180px,92%);margin:auto}
+    nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:1000;width:min(1120px,92%);padding:12px 16px;border:1px solid var(--line);background:rgba(5,18,20,.64);backdrop-filter:blur(22px);border-radius:22px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 12px 50px rgba(0,0,0,.22)}
+    .brand{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.5px}.brand span{color:var(--mint)}
+    .navlinks{display:flex;gap:22px;color:var(--muted);font-size:13px}.navlinks a:hover{color:var(--text)}
+    .nav-actions{display:flex;gap:8px}.icon-btn{width:38px;height:38px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);border-radius:12px;cursor:pointer}
+    .hero{min-height:100vh;display:grid;place-items:center;padding:150px 0 80px;position:relative}
+    #orbCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);background:rgba(143,243,210,.04);border-radius:999px;color:var(--mint);font-size:12px;margin-bottom:20px}
+    .pulse{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 6px rgba(143,243,210,.08);animation:pulse 2s infinite}
+    @keyframes pulse{50%{box-shadow:0 0 0 11px rgba(143,243,210,0)}}
+    h1{font-family:"Space Grotesk";font-size:clamp(50px,7vw,94px);line-height:.92;letter-spacing:-5px;max-width:850px}
+    h1 .gradient{background:linear-gradient(110deg,#fff 20%,var(--mint) 55%,#9c8cff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{font-size:18px;line-height:1.7;color:var(--muted);max-width:700px;margin:28px 0}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 18px;border-radius:14px;border:1px solid var(--line);cursor:pointer;transition:.25s;position:relative;overflow:hidden}
+    .btn.primary{background:var(--mint);color:#05231d;font-weight:700;border-color:transparent}
+    .btn.secondary{background:rgba(255,255,255,.03)}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 16px 35px rgba(0,0,0,.2)}
+    .hero-card{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,rgba(21,49,51,.8),rgba(9,24,26,.5));border-radius:30px;padding:24px;box-shadow:var(--shadow);transform:rotate(2deg)}
+    .hero-card:after{content:"";position:absolute;inset:-1px;border-radius:30px;background:linear-gradient(135deg,rgba(143,243,210,.25),transparent 45%,rgba(156,140,255,.18));z-index:-1;filter:blur(20px)}
+    .terminal{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#061012}
+    .terminal-top{padding:11px 14px;border-bottom:1px solid var(--line);display:flex;gap:6px}.dot{width:8px;height:8px;border-radius:50%;background:#36504e}
+    .terminal-body{padding:20px;font-family:monospace;font-size:12px;line-height:1.8;color:#b9d2ce}
+    .terminal-body .green{color:var(--mint)}.terminal-body .purple{color:#b5a9ff}
+    .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.mini{padding:13px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}.mini strong{font-family:"Space Grotesk";font-size:20px}.mini span{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+    section{padding:110px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:38px}.kicker{color:var(--mint);font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}.section-title{font-family:"Space Grotesk";font-size:clamp(34px,5vw,60px);letter-spacing:-2.5px}.section-sub{color:var(--muted);max-width:510px;line-height:1.7}
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{border:1px solid var(--line);background:linear-gradient(145deg,rgba(18,43,45,.72),rgba(8,23,25,.64));border-radius:26px;overflow:hidden;transition:.35s;position:relative;cursor:pointer}
+    .project:hover{transform:translateY(-8px);border-color:rgba(143,243,210,.3);box-shadow:var(--shadow)}
+    .project-visual{height:260px;position:relative;overflow:hidden;background:#08191b}
+    .project-visual img{width:100%;height:100%;object-fit:cover;opacity:.76;transition:.45s}.project:hover img{transform:scale(1.05);opacity:.9}
+    .project-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(4,13,14,.92))}
+    .project-num{position:absolute;top:18px;left:18px;z-index:2;font-family:"Space Grotesk";font-size:12px;color:rgba(255,255,255,.7)}
+    .project-type{position:absolute;right:18px;top:18px;z-index:2;padding:7px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.25);font-size:10px}
+    .project-info{padding:22px}.project-info h3{font-family:"Space Grotesk";font-size:25px;letter-spacing:-.8px}.project-info p{color:var(--muted);line-height:1.65;font-size:14px;margin:9px 0 15px}
+    .tags{display:flex;flex-wrap:wrap;gap:7px}.tag{font-size:10px;padding:7px 9px;border-radius:9px;background:rgba(143,243,210,.06);border:1px solid rgba(143,243,210,.1);color:#bce9dc}
+    .featured{grid-column:1/-1;display:grid;grid-template-columns:1.1fr .9fr}.featured .project-visual{height:100%}.featured .project-info{display:flex;flex-direction:column;justify-content:center;padding:35px}.featured .project-info h3{font-size:38px}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:transparent;color:var(--muted);padding:8px 12px;border-radius:999px;cursor:pointer;font-size:11px}.filter.active,.filter:hover{background:var(--mint);color:#06231d;border-color:transparent}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px}.glass{border:1px solid var(--line);background:var(--card);border-radius:26px;padding:28px;box-shadow:var(--shadow)}
+    .about-copy{font-size:20px;line-height:1.65}.about-copy b{color:var(--mint)}
+    .skill-cloud{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.skill{padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.025);font-size:12px}
+    .timeline{display:grid;gap:14px}.timeline-item{display:grid;grid-template-columns:95px 1fr;gap:18px;align-items:start}.timeline-year{color:var(--mint);font-family:"Space Grotesk";font-size:12px;padding-top:4px}.timeline-card{padding:17px 18px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.02)}.timeline-card strong{font-family:"Space Grotesk"}.timeline-card p{color:var(--muted);font-size:13px;line-height:1.6;margin-top:5px}
+    .contact{position:relative;overflow:hidden}.contact:before{content:"";position:absolute;width:450px;height:450px;background:radial-gradient(circle,rgba(143,243,210,.18),transparent 65%);right:-120px;top:-160px}
+    .contact-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:center}.contact h2{font-family:"Space Grotesk";font-size:clamp(38px,6vw,70px);letter-spacing:-3px;max-width:700px}.contact p{color:var(--muted);font-size:16px;line-height:1.7;max-width:620px;margin:18px 0 24px}
+    footer{padding:35px 0 45px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}.socials{display:flex;gap:12px}.socials a:hover{color:var(--mint)}
+    .reveal{opacity:0;transform:translateY(25px);transition:opacity .7s,transform .7s}.reveal.show{opacity:1;transform:none}
+    .modal{position:fixed;inset:0;background:rgba(1,8,9,.78);backdrop-filter:blur(18px);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal-box{width:min(850px,95vw);max-height:90vh;overflow:auto;background:#0a1b1d;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);position:relative}.modal-image{height:300px}.modal-image img{width:100%;height:100%;object-fit:cover}.modal-content{padding:28px}.modal-content h2{font-family:"Space Grotesk";font-size:35px}.modal-content p{color:var(--muted);line-height:1.75;margin:12px 0}.close{position:absolute;right:16px;top:16px;z-index:3;width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.35);color:#fff;cursor:pointer}
+    .loader{position:fixed;inset:0;background:#061012;z-index:5000;display:grid;place-items:center;transition:.7s}.loader.hide{opacity:0;visibility:hidden}.loader-inner{display:grid;place-items:center;gap:15px}.loader-mark{width:58px;height:58px;border:2px solid rgba(143,243,210,.15);border-top-color:var(--mint);border-radius:50%;animation:spin 1s linear infinite}.loader-text{font-family:"Space Grotesk";letter-spacing:3px;font-size:11px;color:var(--muted)}@keyframes spin{to{transform:rotate(360deg)}}
+    @media(max-width:900px){.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero{padding-top:130px}.hero-card{max-width:650px;margin:auto}.navlinks{display:none}.project-grid{grid-template-columns:1fr}.featured{grid-column:auto;display:block}.featured .project-visual{height:260px}.featured .project-info h3{font-size:30px}}
+    @media(max-width:560px){nav{top:10px}.brand{font-size:14px}.hero{padding-top:115px}.hero-copy{font-size:16px}h1{letter-spacing:-3px}.section-head{display:block}.filters{margin-top:18px}.project-visual{height:220px}.stat-strip{grid-template-columns:1fr}.timeline-item{grid-template-columns:1fr;gap:5px}.timeline-year{padding-left:4px}.footer-row{flex-direction:column;align-items:flex-start}}
+    [data-theme="light"]{--bg:#f4f7f5;--bg2:#eaf1ee;--card:rgba(255,255,255,.72);--line:rgba(10,48,42,.12);--text:#0c2420;--muted:#5c706c;--shadow:0 30px 80px rgba(31,70,62,.12)}
+    [data-theme="light"] nav{background:rgba(255,255,255,.72)}[data-theme="light"] .hero-card,[data-theme="light"] .project{background:rgba(255,255,255,.75)}[data-theme="light"] .terminal{background:#0a1a1c}[data-theme="light"] .modal{background:rgba(225,235,231,.75)}[data-theme="light"] .modal-box{background:#f6faf8}
+  </style>
+</head>
+<body>
+  <div class="loader"><div class="loader-inner"><div class="loader-mark"></div><div class="loader-text">GADAH / AI PORTFOLIO</div></div></div>
+  <div class="progress"></div>
+  <div class="cursor"></div><div class="cursor-dot"></div>
+
+  <nav>
+    <a class="brand" href="#home">Gadah<span>.</span></a>
+    <div class="navlinks">
+      <a href="#work">Work</a><a href="#about">About</a><a href="#stack">Stack</a><a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">☼</button>
+      <a class="icon-btn" style="display:grid;place-items:center" href="https://github.com/Gadah12" target="_blank" aria-label="GitHub">↗</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <canvas id="orbCanvas"></canvas>
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="pulse"></span> Available for AI & Data opportunities</div>
+          <h1>I build <span class="gradient">intelligent systems</span> that turn data into action.</h1>
+          <p class="hero-copy">AI & Data professional focused on machine learning, deep learning, computer vision, NLP, multimodal AI, and practical interfaces that make complex models easier to use.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#work">Explore my work <span>↓</span></a>
+            <a class="btn secondary" href="https://github.com/Gadah12" target="_blank">View GitHub ↗</a>
+          </div>
+        </div>
+        <div class="hero-card reveal">
+          <div class="terminal">
+            <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="terminal-body">
+              <div><span class="purple">const</span> profile = {</div>
+              <div>&nbsp;&nbsp;focus: <span class="green">"AI + Data"</span>,</div>
+              <div>&nbsp;&nbsp;vision: <span class="green">"Computer Vision"</span>,</div>
+              <div>&nbsp;&nbsp;models: <span class="green">"Deep Learning"</span>,</div>
+              <div>&nbsp;&nbsp;systems: <span class="green">"Multimodal AI"</span>,</div>
+              <div>&nbsp;&nbsp;shipping: <span class="green">true</span></div>
+              <div>};</div>
+              <br>
+              <div><span class="purple">return</span> profile;</div>
+            </div>
+          </div>
+          <div class="stat-strip">
+            <div class="mini"><strong>4+</strong><span>featured AI systems</span></div>
+            <div class="mini"><strong>AI</strong><span>core specialization</span></div>
+            <div class="mini"><strong>∞</strong><span>curiosity</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="kicker">Selected work</div><h2 class="section-title">Projects with a purpose.</h2></div>
+          <div><div class="filters">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="multimodal">Multimodal</button>
+            <button class="filter" data-filter="vision">Computer Vision</button>
+            <button class="filter" data-filter="genai">GenAI</button>
+          </div></div>
+        </div>
+
+        <div class="project-grid">
+          <article class="project featured reveal" data-category="multimodal vision" data-project="neuro">
+            <div class="project-visual">
+              <img src="https://raw.githubusercontent.com/Gadah12/-alzheimer-early-risk-screening/main/final_multimodal_assessment.png" alt="NeuroVision AI dashboard">
+              <span class="project-num">01 / FEATURED</span><span class="project-type">Multimodal AI</span>
+            </div>
+            <div class="project-info">
+              <div class="kicker">Graduation project</div>
+              <h3>NeuroVision AI</h3>
+              <p>MRI + voice + clinical text fused into one explainable early-risk screening workflow, with saliency maps and a unified Gradio dashboard.</p>
+              <div class="tags"><span class="tag">TensorFlow</span><span class="tag">MobileNetV2</span><span class="tag">MFCC</span><span class="tag">TF-IDF</span><span class="tag">XAI</span><span class="tag">Gradio</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="vision" data-project="deepfake">
+            <div class="project-visual">
+              <img src="https://raw.githubusercontent.com/Gadah12/-deepfake-detection-video-calls/main/roc_curve.png" alt="Deepfake detection ROC curve">
+              <span class="project-num">02</span><span class="project-type">Computer Vision</span>
+            </div>
+            <div class="project-info">
+              <h3>Deepfake Detection</h3>
+              <p>Video-call protection concept using MobileNetV2, face detection, frame analysis, and real/fake confidence scoring.</p>
+              <div class="tags"><span class="tag">MobileNetV2</span><span class="tag">OpenCV</span><span class="tag">Real-time</span><span class="tag">ROC/AUC</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="vision genai" data-project="rescue">
+            <div class="project-visual">
+              <img src="https://raw.githubusercontent.com/Gadah12/-rescuevision-ai-emergency-response/main/dashboard_full_view.png" alt="RescueVision dashboard">
+              <span class="project-num">03</span><span class="project-type">Vision + GenAI</span>
+            </div>
+            <div class="project-info">
+              <h3>RescueVision AI</h3>
+              <p>Accident-scene analysis that detects vehicles, scores emergency risk, and generates structured response reports.</p>
+              <div class="tags"><span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">Transformers</span><span class="tag">Gradio</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="multimodal vision" data-project="skin">
+            <div class="project-visual">
+              <img src="https://raw.githubusercontent.com/Gadah12/-skin-disease-multimodal-classification/main/unimodal_vs_multimodal.png" alt="Skin disease multimodal comparison">
+              <span class="project-num">04</span><span class="project-type">Multimodal Vision</span>
+            </div>
+            <div class="project-info">
+              <h3>Skin Disease Classifier</h3>
+              <p>EfficientNetB3 image features fused with symptom text, with Grad-CAM, top-3 predictions, severity and exportable results.</p>
+              <div class="tags"><span class="tag">EfficientNetB3</span><span class="tag">TF-IDF</span><span class="tag">Grad-CAM</span><span class="tag">Streamlit</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="kicker">About</div><h2 class="section-title">Curious by default. Practical by design.</h2></div><p class="section-sub">I enjoy taking an ambiguous problem, shaping the data, testing models, explaining the result, and turning it into something people can actually use.</p></div>
+        <div class="about-grid">
+          <div class="glass reveal">
+            <p class="about-copy">I work at the intersection of <b>AI, data and product thinking</b>. My projects cover healthcare AI, security, emergency response, computer vision and multimodal learning.</p>
+            <div class="skill-cloud">
+              <span class="skill">Machine Learning</span><span class="skill">Deep Learning</span><span class="skill">Computer Vision</span><span class="skill">NLP</span><span class="skill">Multimodal AI</span><span class="skill">Explainable AI</span><span class="skill">Data Analysis</span><span class="skill">Python</span>
+            </div>
+          </div>
+          <div class="glass reveal" id="stack">
+            <div class="kicker">My workflow</div>
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-year">01</div><div class="timeline-card"><strong>Frame the problem</strong><p>Translate a real need into a measurable AI/data task.</p></div></div>
+              <div class="timeline-item"><div class="timeline-year">02</div><div class="timeline-card"><strong>Prepare the signal</strong><p>Clean, transform and engineer image, audio or text features.</p></div></div>
+              <div class="timeline-item"><div class="timeline-year">03</div><div class="timeline-card"><strong>Build & evaluate</strong><p>Train models, compare metrics, inspect errors and validate assumptions.</p></div></div>
+              <div class="timeline-item"><div class="timeline-year">04</div><div class="timeline-card"><strong>Make it usable</strong><p>Wrap the model in an interactive interface and explain what it does.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="glass reveal" style="text-align:center;padding:55px 25px">
+          <div class="kicker">Education</div>
+          <h2 class="section-title" style="margin-bottom:12px">MSc in Artificial Intelligence</h2>
+          <p class="section-sub" style="margin:auto">BSc in Information Technology • Applied AI & machine learning projects • Jeddah / Saudi Arabia</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal"><div class="kicker">Let’s connect</div><h2>Have a problem worth solving?</h2><p>I’m interested in AI, machine learning, data and technology roles where I can build useful systems and keep learning.</p><div class="cta-row"><a class="btn primary" href="mailto:gabdullh84@gmail.com">Email me ↗</a><a class="btn secondary" href="https://github.com/Gadah12" target="_blank">GitHub ↗</a></div></div>
+        <div class="glass reveal"><div class="kicker">Quick links</div><p style="margin:0 0 10px;color:var(--muted)">GitHub</p><a href="https://github.com/Gadah12" target="_blank" style="font-family:'Space Grotesk';font-size:20px">github.com/Gadah12 ↗</a><hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><p style="margin:0 0 10px;color:var(--muted)">Email</p><a href="mailto:gabdullh84@gmail.com" style="font-family:'Space Grotesk';font-size:17px">gabdullh84@gmail.com ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-row"><div>© 2026 Gadah. Built with curiosity + code.</div><div class="socials"><a href="#home">Back to top ↑</a><a href="https://github.com/Gadah12" target="_blank">GitHub</a></div></div></footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="close" id="closeModal">×</button>
+      <div class="modal-image"><img id="modalImg" src="" alt=""></div>
+      <div class="modal-content">
+        <div class="kicker" id="modalKicker"></div><h2 id="modalTitle"></h2><p id="modalText"></p><div class="tags" id="modalTags"></div>
+        <div class="cta-row" style="margin-top:22px"><a class="btn primary" id="modalRepo" target="_blank">Open GitHub ↗</a><button class="btn secondary" id="closeModal2">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const projects={
+      neuro:{title:"NeuroVision AI",kicker:"Multimodal AI • Graduation Project",text:"A multimodal early-risk screening prototype that combines MRI scans, voice patterns and clinical text. The system uses separate modality models, weighted fusion, MRI saliency/attention visualization and a unified Gradio dashboard. The repository reports MRI, audio and text evaluation with ROC/AUC analysis.",repo:"https://github.com/Gadah12/-alzheimer-early-risk-screening",img:"https://raw.githubusercontent.com/Gadah12/-alzheimer-early-risk-screening/main/final_multimodal_assessment.png",tags:["TensorFlow/Keras","MobileNetV2","MFCC","TF-IDF","XAI","Gradio"]},
+      deepfake:{title:"AI-Based Deepfake Detection",kicker:"Computer Vision • Security",text:"A deepfake detection workflow for video-call scenarios. Frames are extracted from real and manipulated videos, faces are detected with OpenCV, and MobileNetV2 classifies Real vs Fake with confidence. The repository reports a test ROC-AUC of 0.997.",repo:"https://github.com/Gadah12/-deepfake-detection-video-calls",img:"https://raw.githubusercontent.com/Gadah12/-deepfake-detection-video-calls/main/roc_curve.png",tags:["MobileNetV2","OpenCV","Haar Cascade","Scikit-learn","ROC/AUC"]},
+      rescue:{title:"RescueVision AI",kicker:"Computer Vision + Generative AI",text:"An emergency-response prototype that detects and counts vehicles with YOLOv8, maps scene signals to a risk score and severity level, and generates structured emergency-response text through a Hugging Face text-generation pipeline. Outputs are presented in a Gradio dashboard.",repo:"https://github.com/Gadah12/-rescuevision-ai-emergency-response",img:"https://raw.githubusercontent.com/Gadah12/-rescuevision-ai-emergency-response/main/dashboard_full_view.png",tags:["YOLOv8","OpenCV","Transformers","Scikit-learn","Gradio"]},
+      skin:{title:"Multimodal Skin Disease Classifier",kicker:"Multimodal Vision • Explainable AI",text:"A 9-class skin disease classifier that combines EfficientNetB3 image features with TF-IDF symptom text using early fusion. The app includes Grad-CAM explanations, top-3 predictions, severity information and exportable results. The repository reports 77.35% vision-only accuracy and approximately 75–80% multimodal accuracy.",repo:"https://github.com/Gadah12/-skin-disease-multimodal-classification",img:"https://raw.githubusercontent.com/Gadah12/-skin-disease-multimodal-classification/main/unimodal_vs_multimodal.png",tags:["EfficientNetB3","TF-IDF","Early Fusion","Grad-CAM","Streamlit"]}
+    };
+
+    // loader
+    window.addEventListener("load",()=>setTimeout(()=>document.querySelector(".loader").classList.add("hide"),500));
+
+    // scroll reveal
+    const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+    // progress
+    addEventListener("scroll",()=>{const h=document.documentElement.scrollHeight-innerHeight;document.querySelector(".progress").style.width=(scrollY/h*100)+"%"});
+
+    // theme
+    const themeBtn=document.getElementById("themeBtn");
+    themeBtn.onclick=()=>{document.documentElement.toggleAttribute("data-theme","light"); localStorage.theme=document.documentElement.hasAttribute("data-theme")?"light":"dark";};
+    if(localStorage.theme==="light")document.documentElement.setAttribute("data-theme","light");
+
+    // filters
+    document.querySelectorAll(".filter").forEach(btn=>btn.onclick=()=>{
+      document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");
+      const f=btn.dataset.filter;
+      document.querySelectorAll(".project").forEach(p=>p.style.display=(f==="all"||p.dataset.category.includes(f))?"":"none");
+    });
+
+    // modal
+    const modal=document.getElementById("modal");
+    function openProject(key){
+      const p=projects[key]; if(!p)return;
+      modal.classList.add("open");document.body.style.overflow="hidden";
+      modal.querySelector("#modalImg").src=p.img;modal.querySelector("#modalTitle").textContent=p.title;modal.querySelector("#modalKicker").textContent=p.kicker;modal.querySelector("#modalText").textContent=p.text;modal.querySelector("#modalRepo").href=p.repo;
+      modal.querySelector("#modalTags").innerHTML=p.tags.map(t=>`<span class="tag">${t}</span>`).join("");
+    }
+    document.querySelectorAll(".project").forEach(p=>p.onclick=()=>openProject(p.dataset.project));
+    function closeModal(){modal.classList.remove("open");document.body.style.overflow=""}
+    document.getElementById("closeModal").onclick=closeModal;document.getElementById("closeModal2").onclick=closeModal;
+    modal.onclick=e=>{if(e.target===modal)closeModal()};addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+
+    // cursor
+    const cursor=document.querySelector(".cursor"),dot=document.querySelector(".cursor-dot");
+    addEventListener("pointermove",e=>{cursor.style.left=e.clientX+"px";cursor.style.top=e.clientY+"px";dot.style.left=e.clientX+"px";dot.style.top=e.clientY+"px"});
+    document.querySelectorAll("a,button,.project").forEach(el=>{el.addEventListener("mouseenter",()=>{cursor.style.width="34px";cursor.style.height="34px";cursor.style.background="rgba(143,243,210,.08)"});el.addEventListener("mouseleave",()=>{cursor.style.width="18px";cursor.style.height="18px";cursor.style.background="transparent"})});
+
+    // interactive particle field
+    const canvas=document.getElementById("orbCanvas"),ctx=canvas.getContext("2d");let pts=[],mx=-9999,my=-9999;
+    function resize(){canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+"px";canvas.style.height=innerHeight+"px";ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);pts=Array.from({length:Math.min(90,Math.floor(innerWidth/14))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.6+.3}))}
+    function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const p of pts){let dx=mx-p.x,dy=my-p.y,d=Math.hypot(dx,dy);if(d<150){p.vx+=dx/d*.003;p.vy+=dy/d*.003}p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>innerWidth)p.vx*=-1;if(p.y<0||p.y>innerHeight)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle="rgba(143,243,210,.42)";ctx.fill()}requestAnimationFrame(draw)}
+    addEventListener("resize",resize);addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY});resize();draw();
+  </script>
+</body>
+</html>
