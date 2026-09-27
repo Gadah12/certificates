@@ -94,7 +94,7 @@
   <nav>
     <a class="brand" href="#home">Gadah<span>.</span></a>
     <div class="navlinks">
-      <a href="#work">Work</a><a href="#certificates">Certificates</a><a href="#about">About</a><a href="#stack">Stack</a><a href="#contact">Contact</a>
+      <a href="#work">Work</a><a href="#certificates">Certificates</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
       <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">☼</button>
@@ -113,6 +113,7 @@
           <div class="cta-row">
             <a class="btn primary" href="#work">Explore my work <span>↓</span></a>
             <a class="btn secondary" href="https://github.com/Gadah12" target="_blank">View GitHub ↗</a>
+            <a class="btn secondary" href="Ghada_CV.pdf" target="_blank">Download CV ↗</a>
           </div>
         </div>
         <div class="hero-card reveal">
@@ -131,7 +132,7 @@
             </div>
           </div>
           <div class="stat-strip">
-            <div class="mini"><strong>4+</strong><span>featured AI systems</span></div>
+            <div class="mini"><strong>6+</strong><span>featured AI systems</span></div>
             <div class="mini"><strong>AI</strong><span>core specialization</span></div>
             <div class="mini"><strong>∞</strong><span>curiosity</span></div>
           </div>
@@ -148,6 +149,7 @@
             <button class="filter" data-filter="multimodal">Multimodal</button>
             <button class="filter" data-filter="vision">Computer Vision</button>
             <button class="filter" data-filter="genai">GenAI</button>
+            <button class="filter" data-filter="mobile">Mobile / Applied AI</button>
           </div></div>
         </div>
 
@@ -198,6 +200,30 @@
               <h3>Skin Disease Classifier</h3>
               <p>EfficientNetB3 image features fused with symptom text, with Grad-CAM, top-3 predictions, severity and exportable results.</p>
               <div class="tags"><span class="tag">EfficientNetB3</span><span class="tag">TF-IDF</span><span class="tag">Grad-CAM</span><span class="tag">Streamlit</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="mobile vision" data-project="ddps">
+            <div class="project-visual">
+              <div style="width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(145deg,#0d2a28,#08191b);color:var(--muted);font-family:'Space Grotesk';font-size:13px">Android · Real-time CV</div>
+              <span class="project-num">05</span><span class="project-type">Applied AI · 1st Place</span>
+            </div>
+            <div class="project-info">
+              <h3>DDPS — Driver Drowsiness Prediction</h3>
+              <p>CNN-based Android app that detects driver fatigue in real time through eye-state analysis. Placed 1st among competing IT graduation projects.</p>
+              <div class="tags"><span class="tag">CNN</span><span class="tag">Android</span><span class="tag">Real-time</span><span class="tag">Computer Vision</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="mobile genai" data-project="battleship">
+            <div class="project-visual">
+              <div style="width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(145deg,#0d2a28,#08191b);color:var(--muted);font-family:'Space Grotesk';font-size:13px">Minimax · Strategy Game</div>
+              <span class="project-num">06</span><span class="project-type">Classical AI</span>
+            </div>
+            <div class="project-info">
+              <h3>Battleship with a Minimax AI Opponent</h3>
+              <p>A strategy game built with the easyAI library, using the Minimax algorithm for the opposing player and a graphical interface with live board tracking.</p>
+              <div class="tags"><span class="tag">Minimax</span><span class="tag">easyAI</span><span class="tag">Python</span><span class="tag">Game AI</span></div>
             </div>
           </article>
         </div>
@@ -271,12 +297,12 @@
 
     <section id="about">
       <div class="container">
-        <div class="section-head reveal"><div><div class="kicker">About</div><h2 class="section-title">Curious by default. Practical by design.</h2></div><p class="section-sub">I enjoy taking an ambiguous problem, shaping the data, testing models, explaining the result, and turning it into something people can actually use.</p></div>
+        <div class="section-head reveal"><div><div class="kicker">About</div><h2 class="section-title">Curious by default. Practical by design.</h2></div><p class="section-sub">IT & AI graduate with a well-rounded foundation across IT support, networking, project management, data analysis and machine learning.</p></div>
         <div class="about-grid">
           <div class="glass reveal">
-            <p class="about-copy">I work at the intersection of <b>AI, data and product thinking</b>. My projects cover healthcare AI, security, emergency response, computer vision and multimodal learning.</p>
+            <p class="about-copy">MSc in <b>Artificial Intelligence</b> (First-Class Honors, GPA 5.0/5.0) and BSc in Information Technology. I've built five end-to-end AI and software projects spanning computer vision, multimodal data fusion and explainable AI, backed by hands-on IT support experience and certifications across networking, project management and data analysis.</p>
             <div class="skill-cloud">
-              <span class="skill">Machine Learning</span><span class="skill">Deep Learning</span><span class="skill">Computer Vision</span><span class="skill">NLP</span><span class="skill">Multimodal AI</span><span class="skill">Explainable AI</span><span class="skill">Data Analysis</span><span class="skill">Python</span>
+              <span class="skill">Machine Learning</span><span class="skill">Deep Learning</span><span class="skill">Computer Vision</span><span class="skill">Multimodal AI</span><span class="skill">Python</span><span class="skill">Networking</span><span class="skill">SQL & Power BI</span><span class="skill">Project Management</span><span class="skill">IT Support</span>
             </div>
           </div>
           <div class="glass reveal" id="stack">
@@ -292,12 +318,29 @@
       </div>
     </section>
 
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="kicker">Experience</div><h2 class="section-title">Hands-on in the field.</h2></div></div>
+        <div class="glass reveal">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2022</div>
+              <div class="timeline-card">
+                <strong>Administrative & Technical IT Intern — King Fahad Medical City, Riyadh</strong>
+                <p>3-month internship providing first-level technical support for hardware, software, printer and network issues in a multi-user healthcare environment. Installed, configured and deployed desktops and Windows systems, troubleshot network connectivity, and maintained technical documentation and issue records — collaborating across a multi-disciplinary team in English and Arabic.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="container">
         <div class="glass reveal" style="text-align:center;padding:55px 25px">
           <div class="kicker">Education</div>
           <h2 class="section-title" style="margin-bottom:12px">MSc in Artificial Intelligence</h2>
-          <p class="section-sub" style="margin:auto">BSc in Information Technology • Applied AI & machine learning projects • Jeddah / Saudi Arabia</p>
+          <p class="section-sub" style="margin:auto">King Abdulaziz University, First-Class Honors, GPA 5.00/5.00 (2026) • BSc in Information Technology, University of Jeddah (2023) • Jeddah, Saudi Arabia</p>
         </div>
       </div>
     </section>
@@ -328,7 +371,9 @@
       neuro:{title:"NeuroVision AI",kicker:"Multimodal AI • Graduation Project",text:"A multimodal early-risk screening prototype that combines MRI scans, voice patterns and clinical text. The system uses separate modality models, weighted fusion, MRI saliency/attention visualization and a unified Gradio dashboard. The repository reports MRI, audio and text evaluation with ROC/AUC analysis.",repo:"https://github.com/Gadah12/-alzheimer-early-risk-screening",img:"https://raw.githubusercontent.com/Gadah12/-alzheimer-early-risk-screening/main/final_multimodal_assessment.png",tags:["TensorFlow/Keras","MobileNetV2","MFCC","TF-IDF","XAI","Gradio"]},
       deepfake:{title:"AI-Based Deepfake Detection",kicker:"Computer Vision • Security",text:"A deepfake detection workflow for video-call scenarios. Frames are extracted from real and manipulated videos, faces are detected with OpenCV, and MobileNetV2 classifies Real vs Fake with confidence. The repository reports a test ROC-AUC of 0.997.",repo:"https://github.com/Gadah12/-deepfake-detection-video-calls",img:"https://raw.githubusercontent.com/Gadah12/-deepfake-detection-video-calls/main/roc_curve.png",tags:["MobileNetV2","OpenCV","Haar Cascade","Scikit-learn","ROC/AUC"]},
       rescue:{title:"RescueVision AI",kicker:"Computer Vision + Generative AI",text:"An emergency-response prototype that detects and counts vehicles with YOLOv8, maps scene signals to a risk score and severity level, and generates structured emergency-response text through a Hugging Face text-generation pipeline. Outputs are presented in a Gradio dashboard.",repo:"https://github.com/Gadah12/-rescuevision-ai-emergency-response",img:"https://raw.githubusercontent.com/Gadah12/-rescuevision-ai-emergency-response/main/dashboard_full_view.png",tags:["YOLOv8","OpenCV","Transformers","Scikit-learn","Gradio"]},
-      skin:{title:"Multimodal Skin Disease Classifier",kicker:"Multimodal Vision • Explainable AI",text:"A 9-class skin disease classifier that combines EfficientNetB3 image features with TF-IDF symptom text using early fusion. The app includes Grad-CAM explanations, top-3 predictions, severity information and exportable results. The repository reports 77.35% vision-only accuracy and approximately 75–80% multimodal accuracy.",repo:"https://github.com/Gadah12/-skin-disease-multimodal-classification",img:"https://raw.githubusercontent.com/Gadah12/-skin-disease-multimodal-classification/main/unimodal_vs_multimodal.png",tags:["EfficientNetB3","TF-IDF","Early Fusion","Grad-CAM","Streamlit"]}
+      skin:{title:"Multimodal Skin Disease Classifier",kicker:"Multimodal Vision • Explainable AI",text:"A 9-class skin disease classifier that combines EfficientNetB3 image features with TF-IDF symptom text using early fusion. The app includes Grad-CAM explanations, top-3 predictions, severity information and exportable results. The repository reports 77.35% vision-only accuracy and approximately 75–80% multimodal accuracy.",repo:"https://github.com/Gadah12/-skin-disease-multimodal-classification",img:"https://raw.githubusercontent.com/Gadah12/-skin-disease-multimodal-classification/main/unimodal_vs_multimodal.png",tags:["EfficientNetB3","TF-IDF","Early Fusion","Grad-CAM","Streamlit"]},
+      ddps:{title:"DDPS — Driver Drowsiness Prediction System",kicker:"Applied AI • 1st Place graduation project",text:"A CNN-based Android application that detects driver fatigue in real time through eye-state analysis, built as an IT graduation project. Secured 1st place among competing graduation projects for its real-time performance and practical safety application.",repo:"https://github.com/Gadah12",img:"",tags:["CNN","Android","Real-time","Computer Vision"]},
+      battleship:{title:"Battleship with a Minimax AI Opponent",kicker:"Classical AI • Game strategy",text:"A Battleship strategy game featuring an AI opponent powered by the Minimax algorithm via the easyAI library, with a graphical interface and live board tracking so each move is visible as the game unfolds.",repo:"https://github.com/Gadah12/-battleship-ai-easyai",img:"",tags:["Minimax","easyAI","Python","Game AI"]}
     };
 
     window.addEventListener("load",()=>setTimeout(()=>document.querySelector(".loader").classList.add("hide"),500));
@@ -352,7 +397,9 @@
     function openProject(key){
       const p=projects[key]; if(!p)return;
       modal.classList.add("open");document.body.style.overflow="hidden";
-      modal.querySelector("#modalImg").src=p.img;modal.querySelector("#modalTitle").textContent=p.title;modal.querySelector("#modalKicker").textContent=p.kicker;modal.querySelector("#modalText").textContent=p.text;modal.querySelector("#modalRepo").href=p.repo;
+      const imgEl=modal.querySelector("#modalImg");
+      if(p.img){imgEl.src=p.img;imgEl.style.display="";}else{imgEl.style.display="none";}
+      modal.querySelector("#modalTitle").textContent=p.title;modal.querySelector("#modalKicker").textContent=p.kicker;modal.querySelector("#modalText").textContent=p.text;modal.querySelector("#modalRepo").href=p.repo;
       modal.querySelector("#modalTags").innerHTML=p.tags.map(t=>`<span class="tag">${t}</span>`).join("");
     }
     document.querySelectorAll(".project").forEach(p=>p.onclick=()=>openProject(p.dataset.project));
