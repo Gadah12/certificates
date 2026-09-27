@@ -77,18 +77,13 @@
     @media(max-width:560px){.cert-grid{grid-template-columns:1fr}}
     .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px}.glass{border:1px solid var(--line);background:var(--card);border-radius:26px;padding:28px;box-shadow:var(--shadow)}
     .about-copy{font-size:20px;line-height:1.65}.about-copy b{color:var(--mint)}
-    .skill-cloud{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.skill{padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.025);font-size:12px}
-    .timeline{display:grid;gap:14px}.timeline-item{display:grid;grid-template-columns:95px 1fr;gap:18px;align-items:start}.timeline-year{color:var(--mint);font-family:"Space Grotesk";font-size:12px;padding-top:4px}.timeline-card{padding:17px 18px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.02)}.timeline-card strong{font-family:"Space Grotesk"}.timeline-card p{color:var(--muted);font-size:13px;line-height:1.6;margin-top:5px}
-    .contact{position:relative;overflow:hidden}.contact:before{content:"";position:absolute;width:450px;height:450px;background:radial-gradient(circle,rgba(143,243,210,.18),transparent 65%);right:-120px;top:-160px}
-    .contact-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:center}.contact h2{font-family:"Space Grotesk";font-size:clamp(38px,6vw,70px);letter-spacing:-3px;max-width:700px}.contact p{color:var(--muted);font-size:16px;line-height:1.7;max-width:620px;margin:18px 0 24px}
-    footer{padding:35px 0 45px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}.socials{display:flex;gap:12px}.socials a:hover{color:var(--mint)}
-    .reveal{opacity:0;transform:translateY(25px);transition:opacity .7s,transform .7s}.reveal.show{opacity:1;transform:none}
-    .modal{position:fixed;inset:0;background:rgba(1,8,9,.78);backdrop-filter:blur(18px);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal-box{width:min(850px,95vw);max-height:90vh;overflow:auto;background:#0a1b1d;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);position:relative}.modal-image{height:300px}.modal-image img{width:100%;height:100%;object-fit:cover}.modal-content{padding:28px}.modal-content h2{font-family:"Space Grotesk";font-size:35px}.modal-content p{color:var(--muted);line-height:1.75;margin:12px 0}.close{position:absolute;right:16px;top:16px;z-index:3;width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.35);color:#fff;cursor:pointer}
-    .loader{position:fixed;inset:0;background:#061012;z-index:5000;display:grid;place-items:center;transition:.7s}.loader.hide{opacity:0;visibility:hidden}.loader-inner{display:grid;place-items:center;gap:15px}.loader-mark{width:58px;height:58px;border:2px solid rgba(143,243,210,.15);border-top-color:var(--mint);border-radius:50%;animation:spin 1s linear infinite}.loader-text{font-family:"Space Grotesk";letter-spacing:3px;font-size:11px;color:var(--muted)}@keyframes spin{to{transform:rotate(360deg)}}
-    @media(max-width:900px){.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero{padding-top:130px}.hero-card{max-width:650px;margin:auto}.navlinks{display:none}.project-grid{grid-template-columns:1fr}.featured{grid-column:auto;display:block}.featured .project-visual{height:260px}.featured .project-info h3{font-size:30px}}
-    @media(max-width:560px){nav{top:10px}.brand{font-size:14px}.hero{padding-top:115px}.hero-copy{font-size:16px}h1{letter-spacing:-3px}.section-head{display:block}.filters{margin-top:18px}.project-visual{height:220px}.stat-strip{grid-template-columns:1fr}.timeline-item{grid-template-columns:1fr;gap:5px}.timeline-year{padding-left:4px}.footer-row{flex-direction:column;align-items:flex-start}}
-    [data-theme="light"]{--bg:#f4f7f5;--bg2:#eaf1ee;--card:rgba(255,255,255,.72);--line:rgba(10,48,42,.12);--text:#0c2420;--muted:#5c706c;--shadow:0 30px 80px rgba(31,70,62,.12)}
-    [data-theme="light"] nav{background:rgba(255,255,255,.72)}[data-theme="light"] .hero-card,[data-theme="light"] .project{background:rgba(255,255,255,.75)}[data-theme="light"] .terminal{background:#0a1a1c}[data-theme="light"] .modal{background:rgba(225,235,231,.75)}[data-theme="light"] .modal-box{background:#f6faf8}
+    .skill-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.skill{font-size:12px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--line);color:var(--muted)}
+    .timeline{display:flex;flex-direction:column;gap:14px}.timeline-item{display:flex;gap:14px;align-items:flex-start}.timeline-year{font-family:"Space Grotesk";font-size:12px;color:var(--mint);padding-top:3px;min-width:24px}.timeline-card p{color:var(--muted);font-size:13px;margin-top:4px;line-height:1.5}
+    .contact{padding-bottom:140px}.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}.contact h2{font-family:"Space Grotesk";font-size:clamp(30px,4vw,46px);letter-spacing:-1.5px;margin:14px 0}.contact p{color:var(--muted);max-width:430px;line-height:1.7;margin-bottom:24px}
+    footer{border-top:1px solid var(--line);padding:26px 0}.footer-row{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;flex-wrap:wrap;gap:10px}.socials{display:flex;gap:18px}
+    .loader{position:fixed;inset:0;z-index:99999;background:var(--bg);display:grid;place-items:center;transition:opacity .5s,visibility .5s}.loader.hide{opacity:0;visibility:hidden}.loader-mark{width:46px;height:46px;border:2px solid var(--line);border-top-color:var(--mint);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 14px}.loader-text{font-family:"Space Grotesk";font-size:12px;letter-spacing:3px;color:var(--muted)}@keyframes spin{to{transform:rotate(360deg)}}
+    .modal{position:fixed;inset:0;z-index:5000;display:none;place-items:center;padding:20px;background:rgba(2,9,10,.75);backdrop-filter:blur(10px)}.modal.open{display:grid}.modal-box{width:min(920px,100%);max-height:88vh;overflow:auto;border:1px solid var(--line);background:#0a1a1c;border-radius:26px;display:grid;grid-template-columns:1fr 1fr;box-shadow:var(--shadow)}.modal-image{height:100%;min-height:260px;background:#08191b}.modal-image img{width:100%;height:100%;object-fit:cover}.modal-content{padding:30px;position:relative}.modal-content h2{font-family:"Space Grotesk";font-size:26px;margin:8px 0}.modal-content p{color:var(--muted);line-height:1.7;font-size:14px}.close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);cursor:pointer;font-size:16px}
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.project-grid{grid-template-columns:1fr}.featured{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.modal-box{grid-template-columns:1fr}.navlinks{display:none}}
   </style>
 </head>
 <body>
@@ -217,55 +212,55 @@
         </div>
 
         <div class="cert-grid">
-          <a class="cert reveal" href="assets/Certificate_Computer_Communications_Coursera.pdf" target="_blank">
+          <a class="cert reveal" href="Certificate_Computer_Communications_Coursera.pdf" target="_blank">
             <div class="cert-kicker">University of Colorado Colorado Springs · Coursera</div>
             <h3>Computer Communications Specialization</h3>
             <span class="cert-link">Open certificate ↗</span>
           </a>
 
-          <a class="cert reveal" href="assets/Certificate_Foundations_Project_Management_Google.pdf" target="_blank">
+          <a class="cert reveal" href="Certificate_Foundations_Project_Management_Google.pdf" target="_blank">
             <div class="cert-kicker">Google · Coursera</div>
             <h3>Foundations of Project Management</h3>
             <span class="cert-link">Open certificate ↗</span>
           </a>
 
-          <a class="cert reveal" href="assets/Certificate_HTML_CSS_JS_Johns_Hopkins.pdf" target="_blank">
+          <a class="cert reveal" href="Certificate_HTML_CSS_JS_Johns_Hopkins.pdf" target="_blank">
             <div class="cert-kicker">Johns Hopkins University · Coursera</div>
             <h3>HTML, CSS, and JavaScript for Web Developers</h3>
             <span class="cert-link">Open certificate ↗</span>
           </a>
 
-          <a class="cert reveal" href="assets/Certificate_IT_Project_Management_Doroob.pdf" target="_blank">
+          <a class="cert reveal" href="Certificate_IT_Project_Management_Doroob.pdf" target="_blank">
             <div class="cert-kicker">Doroob</div>
             <h3>IT Project Management</h3>
             <span class="cert-link">Open certificate ↗</span>
           </a>
 
-          <a class="cert reveal" href="assets/Certificate_Incident_Response_Analysis.pdf" target="_blank">
+          <a class="cert reveal" href="Certificate_Incident_Response_Analysis.pdf" target="_blank">
             <div class="cert-kicker">Professional Training</div>
             <h3>Incident Response Analysis</h3>
             <span class="cert-link">Open certificate ↗</span>
           </a>
 
-          <a class="cert reveal" href="assets/Certificate_PMP_35_Hours_OTA.pdf" target="_blank">
+          <a class="cert reveal" href="Certificate_PMP_35_Hours_OTA.pdf" target="_blank">
             <div class="cert-kicker">Oxford Training Academy</div>
             <h3>PMP Training — 35 Hours</h3>
             <span class="cert-link">Open certificate ↗</span>
           </a>
 
-          <a class="cert reveal" href="assets/Certificate_PMP_Dar_AlRua.pdf" target="_blank">
+          <a class="cert reveal" href="Certificate_PMP_Dar_AlRua.pdf" target="_blank">
             <div class="cert-kicker">Dar Al-Ru'a · TVTC</div>
             <h3>PMP Training — 35 Hours</h3>
             <span class="cert-link">Open certificate ↗</span>
           </a>
 
-          <a class="cert reveal" href="assets/Certificate_RDBMS_IBM_Coursera.pdf" target="_blank">
+          <a class="cert reveal" href="Certificate_RDBMS_IBM_Coursera.pdf" target="_blank">
             <div class="cert-kicker">IBM · Coursera</div>
             <h3>Relational Database Management Systems</h3>
             <span class="cert-link">Open certificate ↗</span>
           </a>
 
-          <a class="cert reveal" href="assets/Certificate_Software_Design_Project_Management_HKUST.pdf" target="_blank">
+          <a class="cert reveal" href="Certificate_Software_Design_Project_Management_HKUST.pdf" target="_blank">
             <div class="cert-kicker">HKUST · Coursera</div>
             <h3>Software Design and Project Management</h3>
             <span class="cert-link">Open certificate ↗</span>
@@ -309,7 +304,7 @@
 
     <section class="contact" id="contact">
       <div class="container contact-grid">
-        <div class="reveal"><div class="kicker">Let’s connect</div><h2>Have a problem worth solving?</h2><p>I’m interested in AI, machine learning, data and technology roles where I can build useful systems and keep learning.</p><div class="cta-row"><a class="btn primary" href="mailto:gabdullh84@gmail.com">Email me ↗</a><a class="btn secondary" href="https://github.com/Gadah12" target="_blank">GitHub ↗</a></div></div>
+        <div class="reveal"><div class="kicker">Let's connect</div><h2>Have a problem worth solving?</h2><p>I'm interested in AI, machine learning, data and technology roles where I can build useful systems and keep learning.</p><div class="cta-row"><a class="btn primary" href="mailto:gabdullh84@gmail.com">Email me ↗</a><a class="btn secondary" href="https://github.com/Gadah12" target="_blank">GitHub ↗</a></div></div>
         <div class="glass reveal"><div class="kicker">Quick links</div><p style="margin:0 0 10px;color:var(--muted)">GitHub</p><a href="https://github.com/Gadah12" target="_blank" style="font-family:'Space Grotesk';font-size:20px">github.com/Gadah12 ↗</a><hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><p style="margin:0 0 10px;color:var(--muted)">Email</p><a href="mailto:gabdullh84@gmail.com" style="font-family:'Space Grotesk';font-size:17px">gabdullh84@gmail.com ↗</a></div>
       </div>
     </section>
@@ -336,29 +331,23 @@
       skin:{title:"Multimodal Skin Disease Classifier",kicker:"Multimodal Vision • Explainable AI",text:"A 9-class skin disease classifier that combines EfficientNetB3 image features with TF-IDF symptom text using early fusion. The app includes Grad-CAM explanations, top-3 predictions, severity information and exportable results. The repository reports 77.35% vision-only accuracy and approximately 75–80% multimodal accuracy.",repo:"https://github.com/Gadah12/-skin-disease-multimodal-classification",img:"https://raw.githubusercontent.com/Gadah12/-skin-disease-multimodal-classification/main/unimodal_vs_multimodal.png",tags:["EfficientNetB3","TF-IDF","Early Fusion","Grad-CAM","Streamlit"]}
     };
 
-    // loader
     window.addEventListener("load",()=>setTimeout(()=>document.querySelector(".loader").classList.add("hide"),500));
 
-    // scroll reveal
     const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.12});
     document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-    // progress
     addEventListener("scroll",()=>{const h=document.documentElement.scrollHeight-innerHeight;document.querySelector(".progress").style.width=(scrollY/h*100)+"%"});
 
-    // theme
     const themeBtn=document.getElementById("themeBtn");
     themeBtn.onclick=()=>{document.documentElement.toggleAttribute("data-theme","light"); localStorage.theme=document.documentElement.hasAttribute("data-theme")?"light":"dark";};
     if(localStorage.theme==="light")document.documentElement.setAttribute("data-theme","light");
 
-    // filters
     document.querySelectorAll(".filter").forEach(btn=>btn.onclick=()=>{
       document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");
       const f=btn.dataset.filter;
       document.querySelectorAll(".project").forEach(p=>p.style.display=(f==="all"||p.dataset.category.includes(f))?"":"none");
     });
 
-    // modal
     const modal=document.getElementById("modal");
     function openProject(key){
       const p=projects[key]; if(!p)return;
@@ -371,12 +360,10 @@
     document.getElementById("closeModal").onclick=closeModal;document.getElementById("closeModal2").onclick=closeModal;
     modal.onclick=e=>{if(e.target===modal)closeModal()};addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
 
-    // cursor
     const cursor=document.querySelector(".cursor"),dot=document.querySelector(".cursor-dot");
     addEventListener("pointermove",e=>{cursor.style.left=e.clientX+"px";cursor.style.top=e.clientY+"px";dot.style.left=e.clientX+"px";dot.style.top=e.clientY+"px"});
     document.querySelectorAll("a,button,.project").forEach(el=>{el.addEventListener("mouseenter",()=>{cursor.style.width="34px";cursor.style.height="34px";cursor.style.background="rgba(143,243,210,.08)"});el.addEventListener("mouseleave",()=>{cursor.style.width="18px";cursor.style.height="18px";cursor.style.background="transparent"})});
 
-    // interactive particle field
     const canvas=document.getElementById("orbCanvas"),ctx=canvas.getContext("2d");let pts=[],mx=-9999,my=-9999;
     function resize(){canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+"px";canvas.style.height=innerHeight+"px";ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);pts=Array.from({length:Math.min(90,Math.floor(innerWidth/14))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.6+.3}))}
     function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const p of pts){let dx=mx-p.x,dy=my-p.y,d=Math.hypot(dx,dy);if(d<150){p.vx+=dx/d*.003;p.vy+=dy/d*.003}p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>innerWidth)p.vx*=-1;if(p.y<0||p.y>innerHeight)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle="rgba(143,243,210,.42)";ctx.fill()}requestAnimationFrame(draw)}
